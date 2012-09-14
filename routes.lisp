@@ -18,7 +18,7 @@
 ;; main
 
 (restas:define-route main ("/")
-  (tpl:root (list :content "главная страница")))
+  (old-page "content/index.htm"))
 
 
 ;; plan file pages
@@ -32,26 +32,30 @@
          ,(cons (concatenate 'string (car param) "/") (cdr param))
        ,@body)))
 
+
 (def/route index ("index")
   (old-page "content/index.htm"))
 (def/route news ("news")
   (old-page "content/news/news.htm"))
+(def/route galery ("galery")
+  (old-page "content/galery.htm"))
+
 
 
 ;; submodules
 
 (restas:mount-submodule -css- (#:restas.directory-publisher)
-  (restas.directory-publisher:*baseurl* '("css"))
-  (restas.directory-publisher:*directory* (path "css/")))
+                        (restas.directory-publisher:*baseurl* '("css"))
+                        (restas.directory-publisher:*directory* (path "css/")))
 
 (restas:mount-submodule -js- (#:restas.directory-publisher)
-  (restas.directory-publisher:*baseurl* '("js"))
-  (restas.directory-publisher:*directory* (path "js/")))
+                        (restas.directory-publisher:*baseurl* '("js"))
+                        (restas.directory-publisher:*directory* (path "js/")))
 
 (restas:mount-submodule -img- (#:restas.directory-publisher)
-  (restas.directory-publisher:*baseurl* '("img"))
-  (restas.directory-publisher:*directory* (path "img/")))
+                        (restas.directory-publisher:*baseurl* '("img"))
+                        (restas.directory-publisher:*directory* (path "img/")))
 
 (restas:mount-submodule -resources- (#:restas.directory-publisher)
-  (restas.directory-publisher:*baseurl* '("resources"))
-  (restas.directory-publisher:*directory* (path "resources/")))
+                        (restas.directory-publisher:*baseurl* '("resources"))
+                        (restas.directory-publisher:*directory* (path "resources/")))
