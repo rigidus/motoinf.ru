@@ -32,14 +32,71 @@
          ,(cons (concatenate 'string (car param) "/") (cdr param))
        ,@body)))
 
+;; главная страница
 
 (def/route index ("index")
   (old-page "content/index.htm"))
+
+;; верхнее меню
+
 (def/route news ("news")
   (old-page "content/news/news.htm"))
+
 (def/route galery ("galery")
   (old-page "content/galery.htm"))
 
+(def/route formsearch ("formsearch")
+  (old-page "content/formsearch.htm"))
+
+(def/route contacts ("contacts")
+  (old-page "content/contacts.htm"))
+
+(def/route forum ("forum")
+  (old-page "content/forum.htm"))
+
+;; боковое меню
+
+(def/route history ("history")
+  (old-page "content/history/history.htm"))
+
+(def/route construct ("construct")
+  (old-page "content/construct/construct.htm"))
+
+(def/route types ("types")
+  (old-page "content/types/types.htm"))
+
+(def/route makers ("makers")
+  (old-page "content/makers/makers.htm"))
+
+(def/route select ("select")
+  (old-page "content/select/select.htm"))
+
+(def/route licence ("license")
+  (old-page "content/license/license.htm"))
+
+(def/route equip ("equip")
+  (old-page "content/equip/equip.htm"))
+
+(def/route driving ("driving")
+  (old-page "content/driving/driving.htm"))
+
+(def/route races ("races")
+  (old-page "content/races/races.htm"))
+
+(def/route travels ("travels")
+  (old-page "content/travels/travels.htm"))
+
+(def/route fbs ("fbs")
+  (old-page "content/fbs.htm"))
+
+(def/route films ("films")
+  (old-page "content/films/films.htm"))
+
+(def/route books ("books")
+  (old-page "content/books/books.htm"))
+
+(def/route songs ("songs")
+  (old-page "content/songs/songs.htm"))
 
 
 ;; submodules
