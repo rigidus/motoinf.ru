@@ -13,7 +13,7 @@ body {
 /* headers */
 h2, h3, h4, h5, h6 { color: #ffc; margin: 0; font-weight: normal; }
 h2 { font-size: 2.5em; padding: 0 0; }
-h3 { font-size: 2.1em; padding: 25px 0; }
+h3 { font-size: 1.9em; padding: 25px 0; }
 h4 { font-size: 1.7em; padding: 20px 0; }
 h5 { font-size: 1.4em; padding: 15px 0; }
 h6 { font-size: 1.2em; padding: 10px 0 0; }
@@ -183,6 +183,8 @@ span, em, strong, acronym, del, label, input, select, textarea, a { margin: 0 !i
 	margin-right: 40px;
 	float: left;
 	}
+#content #left a { font-size: 14px; }
+
 
 /* right column formatting */
 #content #right {
@@ -194,7 +196,7 @@ span, em, strong, acronym, del, label, input, select, textarea, a { margin: 0 !i
 	padding: 0 20px 20px;
 	}
 * html #content #right { height: 322px; }
-
+#content #right h3 { align: justify; }
 
 /* generic content */
 #content p.info {
