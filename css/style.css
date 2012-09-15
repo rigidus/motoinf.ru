@@ -190,6 +190,8 @@ span, em, strong, acronym, del, label, input, select, textarea, a { margin: 0 !i
 #content #right {
 	float: left;
 	width: 260px;
+    hight: 900px;
+    float: right;
 	background: url(../img/subnav_.jpg) repeat-x;
 	min-height: 322px;
 	margin-top: 10px;

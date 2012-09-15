@@ -91,6 +91,9 @@
 
 (def/route films ("films")
   (old-page "content/films/films.htm"))
+(def/route dikar ("dikar")
+  (old-page "content/films/dikar.htm"))
+
 
 (def/route books ("books")
   (old-page "content/books/books.htm"))
