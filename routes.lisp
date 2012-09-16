@@ -32,12 +32,12 @@
          ,(cons (concatenate 'string (car param) "/") (cdr param))
        ,@body)))
 
-;; главная страница
+;;; главная страница
 
 (def/route index ("index")
   (old-page "content/index.htm"))
 
-;; верхнее меню
+;;; верхнее меню
 
 (def/route news ("news")
   (old-page "content/news/news.htm"))
@@ -54,7 +54,7 @@
 (def/route forum ("forum")
   (old-page "content/forum.htm"))
 
-;; боковое меню
+;;; боковое меню
 
 (def/route history ("history")
   (old-page "content/history/history.htm"))
@@ -89,14 +89,22 @@
 (def/route fbs ("fbs")
   (old-page "content/fbs.htm"))
 
+;; фильмы
+
 (def/route films ("films")
   (old-page "content/films/films.htm"))
+
 (def/route dikar ("dikar")
   (old-page "content/films/dikar.htm"))
+(def/route wildangels ("wildangels")
+  (old-page "content/films/wildangels.htm"))
 
+;; книги
 
 (def/route books ("books")
   (old-page "content/books/books.htm"))
+
+;; песни
 
 (def/route songs ("songs")
   (old-page "content/songs/songs.htm"))
