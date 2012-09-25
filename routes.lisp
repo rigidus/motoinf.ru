@@ -169,8 +169,8 @@
   (old-page "content/songs/thetroggs.htm"))
 (def/route twins ("twins")
     (old-page "content/songs/twins.htm"))
-(def/route molver ("molver")
-    (old-page "content/songs/molver.htm"))
+(def/route wolver ("wolver")
+    (old-page "content/songs/wolver.htm"))
 (def/route ugly ("ugly")
     (old-page "content/songs/ugly.htm"))
 
