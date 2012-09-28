@@ -32,29 +32,64 @@
          ,(cons (concatenate 'string (car param) "/") (cdr param))
        ,@body)))
 
-;;; главная страница
+;; *ГЛАВНАЯ СТРАНИЦА*
 
 (def/route index ("index")
   (old-page "content/index.htm"))
 
-;;; верхнее меню
+;; *ВЕРХНЕЕ МЕНЮ*
+
+;; Новости
 
 (def/route news ("news")
   (old-page "content/news/news.htm"))
 
+;; Галерея
+
 (def/route galery ("galery")
-  (old-page "content/galery.htm"))
+  (old-page "content/galery/galery.htm"))
+
+(def/route humor ("humor")
+  (old-page "content/galery/humor.htm"))
+(def/route retro ("retro")
+    (old-page "content/galery/retro.htm"))
+(def/route gal_voen ("gal_voen")
+    (old-page "content/galery/gal_voen.htm"))
+(def/route gal_neobych ("gal_neobych")
+    (old-page "content/galery/gal_neobych.htm"))
+(def/route gal_class ("gal_class")
+    (old-page "content/galery/gal_class.htm"))
+(def/route gal_sport ("gal_sport")
+    (old-page "content/galery/gal_sport.htm"))
+(def/route gal_enduro ("gal_enduro")
+    (old-page "content/galery/gal_enduro.htm"))
+(def/route gal_kross ("gal_kross")
+    (old-page "content/galery/gal_kross.htm"))
+(def/route gal_tur ("gal_tur")
+    (old-page "content/galery/gal_tur.htm"))
+(def/route gal_trial ("gal_trial")
+    (old-page "content/galery/gal_trial.htm"))
+(def/route gal_chopp ("gal_chopp")
+    (old-page "content/galery/gal_chopp.htm"))
+(def/route gal_mini ("gal_mini")
+    (old-page "content/galery/gal_mini.htm"))
+
+;; Поиск
 
 (def/route formsearch ("formsearch")
   (old-page "content/formsearch.htm"))
 
+;; Контакты
+
 (def/route contacts ("contacts")
   (old-page "content/contacts.htm"))
+
+;; Форум
 
 (def/route forum ("forum")
   (old-page "content/forum.htm"))
 
-;;; боковое меню
+;; *БОКОВОЕ МЕНЮ*
 
 (def/route history ("history")
   (old-page "content/history/history.htm"))
@@ -89,7 +124,7 @@
 (def/route fbs ("fbs")
   (old-page "content/fbs.htm"))
 
-;; фильмы
+;; Фильмы
 
 (def/route films ("films")
   (old-page "content/films/films.htm"))
@@ -99,12 +134,12 @@
 (def/route wildangels ("wildangels")
   (old-page "content/films/wildangels.htm"))
 
-;; книги
+;; Книги
 
 (def/route books ("books")
   (old-page "content/books/books.htm"))
 
-;; песни
+;; Песни
 
 (def/route songs ("songs")
   (old-page "content/songs/songs.htm"))
@@ -169,8 +204,8 @@
   (old-page "content/songs/thetroggs.htm"))
 (def/route twins ("twins")
     (old-page "content/songs/twins.htm"))
-(def/route molver ("molver")
-    (old-page "content/songs/molver.htm"))
+(def/route wolver ("wolver")
+    (old-page "content/songs/wolver.htm"))
 (def/route ugly ("ugly")
     (old-page "content/songs/ugly.htm"))
 

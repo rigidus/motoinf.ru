@@ -29,10 +29,8 @@ a { text-decoration: none; color: #ff9; }
 a:hover { text-decoration: underline; }
 
 /* images */
-img { border: 5px solid #2F1C07; margin: 0 10px 10px 0; }
-a img { border: 5px solid #2F1C07; }
-a:hover img { border-color: #50300C; }
-img.right { margin-left: 10px; }
+img { margin: 0 10px 10px 0; }
+
 
 /* lists */
 ul, ol, dl, table, blockquote, code { font-size: 1.2em; }
