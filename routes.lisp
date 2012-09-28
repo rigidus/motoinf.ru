@@ -47,14 +47,12 @@
 ;; Галерея
 
 (def/route galery ("galery")
-  (old-page "content/galery.htm"))
+  (old-page "content/galery/galery.htm"))
 
 (def/route humor ("humor")
   (old-page "content/galery/humor.htm"))
-(def/route moto19 ("moto19")
-    (old-page "content/galery/moto19.htm"))
-(def/route moto20 ("moto20")
-    (old-page "content/galery/moto20.htm"))
+(def/route retro ("retro")
+    (old-page "content/galery/retro.htm"))
 (def/route gal_voen ("gal_voen")
     (old-page "content/galery/gal_voen.htm"))
 (def/route gal_neobych ("gal_neobych")
