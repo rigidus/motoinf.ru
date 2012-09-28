@@ -1,0 +1,51 @@
+<script type="text/javascript" src="js/jquery-1.8.1.min.js"></script>
+
+<br/>
+<h3 align="middle">Мотоюмор</h3>
+
+<p><img src="img/for_gallery/humor/greensmile.jpg" align="left"
+        style="margin: 0 20px 20px 0;">
+<br/><br/>
+Юмор – это великая сила, способная на многое. Часто можно
+услышать, что курение сокращает жизнь, а смех продлевает.
+И ведь это действительно так!<br/>
+При этом юмор не только позволяет прожить более длинную
+и интересную жизнь, но и привносит в нее оттенки радости и
+счастья. Умение веселиться, смеяться, и проще относиться к
+различным проблемам и невзгодам - это то, к чему всегда
+нужно стремиться.
+</p>
+<br/><br/><br/><br/><br/>
+<h5 align="middle">
+Самые смешные и забавные фотографии, а также рисунки <br/>
+на мототему можно найти здесь!<br/><br/>
+</h5>
+
+<div id="page">
+<div id="gallery">
+	<div id="panel">
+		<img id="largeImage" src="img/for_gallery/humor/zebra_large.jpg" />
+	<div id="thumbs">
+
+        <img src="img/for_gallery/humor/zebra_thumb.jpg" />
+        <img src="img/for_gallery/humor/head_thumb.jpg" />
+        <img src="img/for_gallery/humor/rak_thumb.jpg" />
+        <img src="img/for_gallery/humor/rozovyi_thumb.jpg" />
+        <img src="img/for_gallery/humor/vesna_thumb.jpg" />
+        <img src="img/for_gallery/humor/luk_thumb.jpg" />
+        <img src="img/for_gallery/humor/nakacheli_thumb.jpg" />
+        <img src="img/for_gallery/humor/svinka_thumb.jpg" />
+        <img src="img/for_gallery/humor/skolyaskoi_thumb.jpg" />
+
+
+	</div>
+</div>
+</div>
+
+<script>
+$('#thumbs').delegate('img','click', function(){
+	$('#largeImage').attr('src',$(this).attr('src').replace('thumb','large'));
+	$('#description').html($(this).attr('alt'));
+});
+</script>
+
