@@ -44,6 +44,11 @@
 (def/route news ("news")
   (old-page "content/news/news.htm"))
 
+(def/route 01_10_12_1 ("01_10_12_1")
+  (old-page "content/news/01_10_12_1.htm"))
+(def/route 01_10_12_2 ("01_10_12_2")
+  (old-page "content/news/01_10_12_2.htm"))
+
 ;; Галерея
 
 (def/route gallery ("gallery")
