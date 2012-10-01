@@ -18,7 +18,7 @@ h5 { font-size: 1.4em; padding: 15px 0; }
 h6 { font-size: 1.2em; padding: 10px 0 0; }
 
 /* text */
-p { font-size: 1.2em; line-height: 1.5em; margin: 0 0 20px; }
+p { font-size: 1.2em; line-height: 1.5em; margin: 0 20px 20px 0;}
 acronym { cursor: help; }
 code { font-size: 1.5em !important; margin: 0 0 20px; border: 1px dashed #333; padding: 10px; display: block; background-color: #111; color: #ffc; }
 blockquote { font-family: Georgia, "Times New Roman", Times, serif; margin: 0 0 20px; border: 1px solid #333; padding: 15px 15px 0 15px; display: block; background-color: #111; }
@@ -188,7 +188,7 @@ float: left;
 /* right column formatting */
 #content #right {
 float: right;
-width: 260px;
+width: 210px;
 background: url(../img/subnav_.jpg) repeat-x;
 min-height: 322px;
 margin-top: 10px;
