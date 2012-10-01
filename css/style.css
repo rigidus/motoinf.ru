@@ -43,7 +43,7 @@ dl { padding: 0; }
 dl dt { font-weight: bold; }
 
 /* tables */
-table { margin: 0 0 30px; border: 1px solid #333; }
+table { margin: 0 0 30px;  }
 table th, table td { padding: 10px; text-align: left; color: #fff; }
 table th { background-color: #222; }
 
@@ -72,7 +72,7 @@ hr { border: 0; height: 1px; background-color: #333; color: #333; margin: 30px 0
 **------------------------------------------------------------*/
 #container {
 margin: 0 auto;
-width: 780px;
+width: 1000px;
 text-align: justify;
 min-height: 100%;
 height: auto !important;
@@ -185,14 +185,55 @@ float: left;
 #content #left a { font-size: 14px; }
 #content #left p { width: 720px; }
 
+
+.colLeft{
+    width:210px;
+    float:left;
+    position:relative;
+    z-index:1;
+    top:365px
+}
+
+.colLeft ul.links {
+margin: 0 0 30px;
+padding: 0;
+list-style-type: none;
+font-size: 1.2em;
+}
+.colLeft ul.links li {
+border-bottom: 1px solid #333;
+}
+.colLeft ul.links li a {
+display: block;
+height: 1%;
+padding: 12px;
+}
+.colLeft ul.links li a:hover {
+background-color: #111;
+}
+
+
+
+.colRightContainer{
+    float:right;
+    width:100%;
+    margin-left:-220px;
+}
+.colRight{
+    margin-left:220px;
+}
+
+
+
 /* right column formatting */
 #content #right {
 float: right;
 width: 210px;
-background: url(../img/subnav_.jpg) repeat-x;
 min-height: 322px;
 margin-top: 10px;
 padding: 0 20px 20px;
+position: relative;
+left: -750px;
 }
 * html #content #right { height: 322px; }
 #content #right h3 { align: justify; }
@@ -212,23 +253,6 @@ top: 10px;
 }
 #content p.info a.cmt br { display: none; }
 
-#content ul.links {
-margin: 0 0 30px;
-padding: 0;
-list-style-type: none;
-font-size: 1.2em;
-}
-#content ul.links li {
-border-bottom: 1px solid #333;
-}
-#content ul.links li a {
-display: block;
-height: 1%;
-padding: 12px;
-}
-#content ul.links li a:hover {
-background-color: #111;
-}
 
 #content ul.images {
 margin: 0 0 20px;
