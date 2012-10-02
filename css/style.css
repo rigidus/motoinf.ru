@@ -191,7 +191,7 @@ float: left;
     float:left;
     position:relative;
     z-index:1;
-    top:340px
+    top:360px
 }
 
 .colLeft ul.links {
@@ -299,8 +299,8 @@ margin: 0 11px 11px 0;
 ** Footer
 **------------------------------------------------------------*/
 #footer {
-margin-top: -83px;
-text-align: left;
+margin-top: -50px;
+text-align: center;
 }
 #footer div {
 color: #ACA47D;
