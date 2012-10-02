@@ -1,16 +1,48 @@
+<script type="text/javascript" src="js/jquery.js"></script>
+<script src="js/jquery.imageLens.js" type="text/javascript"></script>
+<script type="text/javascript" language="javascript">
+  $(function () {
+  $("#img_01").imageLens();
+  $("#img_02").imageLens({ lensSize: 200 });
+  $("#img_03").imageLens({ imageSrc: "sample01.jpg" });
+  $("#img_04").imageLens({ borderSize: 8, borderColor: "#06f" });
+  });
+</script>
+
 <br/>
-<h3>Поиск</h3>
+<h3>Поиск по сайту</h3>
+
+<script type="text/javascript">
+  (function(){
+  var bsa = document.createElement('script');
+  bsa.type = 'text/javascript';
+  bsa.async = true;
+  bsa.src = '//s3.buysellads.com/ac/bsa.js';
+  (document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(bsa);
+  })();
+</script>
+
+<p>
+  <img id="img_01" src="img/for_topmenu/mnogomoto.jpg"
+  align="left" width="400" height="250" />
+  <br/><br/>
+  Для того, чтобы найти интересующие вас разделы, воспользуйтесь формой
+  поиска.
+</p>
+
+<br/>
+<br/>
 
 <div class="search">
   <form  method="get" action="/search" target="_blank">
-    <input  name="q" id="form-query" value="" placeholder="поиск по
-    сайту" />            <input type=submit value="искать" />
+    <input  name="q" id="form-query" value="" placeholder="поиск по сайту" />
+    <input type=submit value="искать" />
   </form>
 </div>
 
 <br/>
 <p>
-Поиск пока не работает.
+  Поиск пока не работает.
 </p>
 
 
