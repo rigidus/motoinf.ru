@@ -49,6 +49,8 @@
   (old-page "content/news/01_10_12_1.htm"))
 (def/route 01_10_12_2 ("01_10_12_2")
   (old-page "content/news/01_10_12_2.htm"))
+(def/route 02_10_12 ("02_10_12")
+  (old-page "content/news/02_10_12.htm"))
 
 ;; Галерея
 
