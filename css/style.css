@@ -10,7 +10,7 @@ color: #fff;
 }
 
 /* headers */
-h2, h3, h4, h5, h6 {  color: #ffc; margin: 0; font-weight: normal; }
+h2, h3, h4, h5, h6 {  color: #ffc; margin: 0; font-weight: normal; text-align: center; }
 h2 { font-size: 2.5em; padding: 0 0; }
 h3 { font-size: 1.9em; padding: 25px 0; }
 h4 { font-size: 1.7em; padding: 20px 0; }
@@ -43,8 +43,8 @@ dl { padding: 0; }
 dl dt { font-weight: bold; }
 
 /* tables */
-table { margin: 0 0 30px;  }
-table th, table td { padding: 10px; text-align: left; color: #fff; }
+table { margin: 0 0 30px; width: 720px; }
+table th, table td { padding: 10px; text-align: center; color: #fff; }
 table th { background-color: #222; }
 
 /* forms */
@@ -187,11 +187,11 @@ float: left;
 
 
 .colLeft{
-    width:210px;
+    width:215px;
     float:left;
     position:relative;
     z-index:1;
-    top:365px
+    top:340px
 }
 
 .colLeft ul.links {
