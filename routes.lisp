@@ -123,8 +123,8 @@
 (def/route driving ("driving")
   (old-page "content/driving/driving.htm"))
 
-(def/route races ("races")
-  (old-page "content/races/races.htm"))
+(def/route sport ("sport")
+  (old-page "content/sport/sport.htm"))
 
 (def/route travels ("travels")
   (old-page "content/travels/travels.htm"))
