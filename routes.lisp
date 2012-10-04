@@ -101,35 +101,138 @@
 
 ;; *БОКОВОЕ МЕНЮ*
 
+;; История
+
 (def/route history ("history")
   (old-page "content/history/history.htm"))
+
+;; Устройство
 
 (def/route construct ("construct")
   (old-page "content/construct/construct.htm"))
 
+;; Виды
+
 (def/route types ("types")
   (old-page "content/types/types.htm"))
+
+;; Производители
 
 (def/route makers ("makers")
   (old-page "content/makers/makers.htm"))
 
+(def/route aprilia ("aprilia")
+  (old-page "content/makers/aprilia.htm"))
+(def/route benelli ("benelli")
+    (old-page "content/makers/benelli.htm"))
+(def/route beta ("beta")
+    (old-page "content/makers/beta.htm"))
+(def/route bmw ("bmw")
+    (old-page "content/makers/bmw.htm"))
+(def/route cagiva ("cagiva")
+    (old-page "content/makers/cagiva.htm"))
+(def/route derbi ("derbi")
+    (old-page "content/makers/derbi.htm"))
+(def/route ducati ("ducati")
+    (old-page "content/makers/ducati.htm"))
+(def/route enfield ("enfield")
+    (old-page "content/makers/enfield.htm"))
+(def/route gasgas ("gasgas")
+    (old-page "content/makers/gasgas.htm"))
+(def/route gilera ("gilera")
+    (old-page "content/makers/gilera.htm"))
+(def/route harley ("harley")
+    (old-page "content/makers/harley.htm"))
+(def/route honda ("honda")
+    (old-page "content/makers/honda.htm"))
+(def/route husaberg ("husaberg")
+    (old-page "content/makers/husaberg.htm"))
+(def/route husqvarna ("husqvarna")
+    (old-page "content/makers/husqvarna.htm"))
+(def/route hyosung ("hyosung")
+    (old-page "content/makers/hyosung.htm"))
+(def/route kawasaki ("kawasaki")
+    (old-page "content/makers/kawasaki.htm"))
+(def/route keeway ("keeway")
+    (old-page "content/makers/keeway.htm"))
+(def/route ktm ("ktm")
+    (old-page "content/makers/ktm.htm"))
+(def/route kymco ("kymco")
+    (old-page "content/makers/kymco.htm"))
+(def/route laverda ("laverda")
+    (old-page "content/makers/laverda.htm"))
+(def/route malaguti ("malaguti")
+    (old-page "content/makers/malaguti.htm"))
+(def/route motog ("motoguzzi")
+    (old-page "content/makers/motoguzzi.htm"))
+(def/route motomorini ("motomorini")
+    (old-page "content/makers/motomorini.htm"))
+(def/route muz ("muz")
+    (old-page "content/makers/muz.htm"))
+(def/route mz ("mz")
+    (old-page "content/makers/mz.htm"))
+(def/route mvagusta ("mvagusta")
+    (old-page "content/makers/mvagusta.htm"))
+(def/route peugeot ("peugeot")
+    (old-page "content/makers/peugeot.htm"))
+(def/route pgo ("pgo")
+    (old-page "content/makers/pgo.htm"))
+(def/route piaggio ("piaggio")
+    (old-page "content/makers/piaggio.htm"))
+(def/route rieju ("rieju")
+    (old-page "content/makers/rieju.htm"))
+(def/route sherco ("sherco")
+    (old-page "content/makers/sherco.htm"))
+(def/route suzuki ("suzuki")
+    (old-page "content/makers/suzuki.htm"))
+(def/route sum ("sum")
+    (old-page "content/makers/sum.htm"))
+(def/route tmracing ("tmracing")
+    (old-page "content/makers/tmracing.htm"))
+(def/route tgb ("tgb")
+    (old-page "content/makers/tgb.htm"))
+(def/route triumph ("triumph")
+    (old-page "content/makers/triumph.htm"))
+(def/route veli ("veli")
+    (old-page "content/makers/veli.htm"))
+(def/route vespa ("vespa")
+    (old-page "content/makers/vespa.htm"))
+(def/route victory ("victory")
+    (old-page "content/makers/victory.htm"))
+(def/route yamaha ("yamaha")
+    (old-page "content/makers/yamaha.htm"))
+
+;; Выбор
+
 (def/route select ("select")
   (old-page "content/select/select.htm"))
+
+;; Права
 
 (def/route licence ("license")
   (old-page "content/license/license.htm"))
 
+;; Экипировка
+
 (def/route equip ("equip")
   (old-page "content/equip/equip.htm"))
+
+;; Вождение
 
 (def/route driving ("driving")
   (old-page "content/driving/driving.htm"))
 
+;; Мотоспорт
+
 (def/route sport ("sport")
   (old-page "content/sport/sport.htm"))
 
+;; Мототуризм
+
 (def/route travels ("travels")
   (old-page "content/travels/travels.htm"))
+
+;; Фильмы книги песни
 
 (def/route fbs ("fbs")
   (old-page "content/fbs.htm"))
