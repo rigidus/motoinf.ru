@@ -106,6 +106,13 @@
 (def/route history ("history")
   (old-page "content/history/history.htm"))
 
+(def/route history_world ("history_world")
+  (old-page "content/history/history_world.htm"))
+(def/route history_russia ("history_russia")
+  (old-page "content/history/history_russia.htm"))
+(def/route history_voen ("history-voen")
+  (old-page "content/history/history_voen.htm"))
+
 ;; Устройство
 
 (def/route construct ("construct")
