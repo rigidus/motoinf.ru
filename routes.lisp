@@ -231,6 +231,11 @@
 (def/route driving ("driving")
   (old-page "content/driving/driving.htm"))
 
+;; Ремонт
+
+(def/route repair ("repair")
+  (old-page "content/repair/repair.htm"))
+
 ;; Мотоспорт
 
 (def/route sport ("sport")
@@ -289,8 +294,6 @@
     (old-page "content/films/stone.htm"))
 (def/route madmax ("madmax")
     (old-page "content/films/madmax.htm"))
-(def/route silverdream ("silverdream")
-    (old-page "content/films/silverdream.htm"))
 (def/route spetters ("spetters")
     (old-page "content/films/spetters.htm"))
 (def/route silverdream ("silverdream")
