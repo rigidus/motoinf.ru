@@ -231,6 +231,9 @@
 (def/route driving ("driving")
   (old-page "content/driving/driving.htm"))
 
+(def/route dr_stseplenie ("dr_stseplenie")
+  (old-page "content/driving/dr_stseplenie.htm"))
+
 ;; Ремонт
 
 (def/route repair ("repair")
