@@ -235,6 +235,8 @@
   (old-page "content/driving/dr_stseplenie.htm"))
 (def/route dr_rulenie ("dr_rulenie")
   (old-page "content/driving/dr_rulenie.htm"))
+(def/route dr_podveska ("dr_podveska")
+  (old-page "content/driving/dr_podveska.htm"))
 
 ;; Ремонт
 
