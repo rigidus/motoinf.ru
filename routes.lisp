@@ -241,6 +241,8 @@
   (old-page "content/driving/dr_podveska.htm"))
 (def/route dr_passagir ("dr_passagir")
   (old-page "content/driving/dr_passagir.htm"))
+(def/route dr_group ("dr_group")
+  (old-page "content/driving/dr_group.htm"))
 
 ;; Ремонт
 
