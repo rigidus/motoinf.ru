@@ -243,6 +243,18 @@
   (old-page "content/driving/dr_passagir.htm"))
 (def/route dr_group ("dr_group")
   (old-page "content/driving/dr_group.htm"))
+(def/route dr_group_1 ("dr_group_1")
+  (old-page "content/driving/dr_group_1.htm"))
+(def/route dr_group_2 ("dr_group_2")
+  (old-page "content/driving/dr_group_2.htm"))
+(def/route dr_group_3 ("dr_group_3")
+  (old-page "content/driving/dr_group_3.htm"))
+(def/route dr_group_4 ("dr_group_4")
+  (old-page "content/driving/dr_group_4.htm"))
+(def/route dr_group_5 ("dr_group_5")
+  (old-page "content/driving/dr_group_5.htm"))
+(def/route dr_group_6 ("dr_group_6")
+  (old-page "content/driving/dr_group_6.htm"))
 
 ;; Ремонт
 
