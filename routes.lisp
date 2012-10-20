@@ -255,6 +255,10 @@
   (old-page "content/driving/dr_group_5.htm"))
 (def/route dr_group_6 ("dr_group_6")
   (old-page "content/driving/dr_group_6.htm"))
+(def/route dr_group_7 ("dr_group_7")
+  (old-page "content/driving/dr_group_7.htm"))
+(def/route dr_group_8 ("dr_group_8")
+  (old-page "content/driving/dr_group_8.htm"))
 
 ;; Ремонт
 
