@@ -18,3 +18,16 @@
                  (:file "routes")
                  (:file "comments")
                  (:file "init")))
+(in-package #:motoinf)
+
+(defparameter *comments* (list "abc" "123" "zzzz"))
+
+(defun comments ()
+  (tpl:root
+   (list :content
+         (concatenate 'string
+                      (tpl:commentblock (list :messages
+                                              (mapcar #'(lambda (x)
+                                                          (list :msg x))
+                                                      *comments*)))
+                      (tpl:commentform)))))

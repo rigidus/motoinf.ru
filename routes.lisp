@@ -550,6 +550,18 @@
 (def/route erotika ("erotika")
     (old-page "content/songs/erotika.htm"))
 
+;; comments
+(def/route comments ("comments")
+  (comments))
+
+(restas:define-route addcomment ("addcomment" :method :post)
+  (setf *comments*
+        (append *comments* (list (hunchentoot:post-parameter "msg"))))
+  (hunchentoot:redirect "/comments"))
+
+
+
+
 
 ;; submodules
 

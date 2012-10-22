@@ -85,5 +85,27 @@
 
   </body>
   </html>
+{/template}
 
+
+{template comment}
+  <div style="border: 1px solid green; margin: 3px;">
+    {$msg |noAutoescape}
+  </div>
+{/template}
+
+{template commentblock}
+  <div style="border: 1px solid red; margin: 3px;">
+    {foreach $msg in $messages}
+      {call comment data="$msg" /}
+    {/foreach}
+  </div>
+{/template}
+
+{template commentform}
+  <form method="POST" action="addcomment">
+    <textarea name="msg" style="width: 400px; height: 100px;"></textarea>
+    <br />
+    <input type="submit" value="send comment" />
+  </form>
 {/template}
