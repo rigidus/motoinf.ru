@@ -87,13 +87,14 @@
 {/template}
 
 {template comment}
-<hr width="720px"></hr><br />
+  <hr width="720px"></hr><br />
   <div>
-    <div style="width: 100px; color: red; display: inline;">
-     <p> {$name |noAutoescape}</p>
-</div>
-    <div style="width: 100px; display: inline;">
-      <p>{$msg |noAutoescape}</p></div>
+    <div style="color: red;">
+      <p> {$name |noAutoescape}</p>
+    </div>
+    <div>
+      <p>{$msg |noAutoescape}</p>
+    </div>
   </div>
 {/template}
 
