@@ -34,7 +34,6 @@
 
       <div class="colLeft">
         <ul class="links">
-          <hr width="215"></hr>
           <li><a href="history">История мотоцикла</a></li>
           <li><a href="construct">Устройство мотоцикла</a></li>
           <li><a href="types">Виды мотоциклов</a></li>
@@ -87,16 +86,19 @@
   </html>
 {/template}
 
-
 {template comment}
-  <div style="border: 1px solid green; margin: 3px;">
-    <div style="width: 100px; color: red; display: inline;">{$name |noAutoescape}</div>
-    <div style="width: 100px; color: yellow; display: inline;">{$msg |noAutoescape}</div>
+<hr width="720px"></hr><br />
+  <div>
+    <div style="width: 100px; color: red; display: inline;">
+     <p> {$name |noAutoescape}</p>
+</div>
+    <div style="width: 100px; display: inline;">
+      <p>{$msg |noAutoescape}</p></div>
   </div>
 {/template}
 
 {template commentblock}
-  <div style="border: 1px solid red; margin: 3px;">
+  <div>
     {foreach $data in $messages}
       {call comment data="$data" /}
     {/foreach}
@@ -104,6 +106,7 @@
 {/template}
 
 {template commentform}
+<hr width="720px"></hr><br />
 <h6>Добавить комментарий</h6>
   <form method="POST" action="addcomment">
     <br />

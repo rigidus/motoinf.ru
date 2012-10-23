@@ -20,10 +20,10 @@
                  (:file "init")))
 (in-package #:motoinf)
 
-(defparameter *comments* (list
-                          (list :name "aaa" :msg "bbb")
-                          (list :name "ccccc" :msg "ddd")
-                          ))
+;; (defparameter *comments* (list
+                          ;; (list :name "aaa" :msg "bbb")
+                          ;; (list :name "ccccc" :msg "ddd")
+                          ;; ))
 
 (defun comments ()
   (tpl:root
