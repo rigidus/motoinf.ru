@@ -90,12 +90,16 @@
 
 {template comment}
   <div style="border: 1px solid green; margin: 3px;">
+    {$name |noAutoescape}
     {$msg |noAutoescape}
   </div>
 {/template}
 
 {template commentblock}
   <div style="border: 1px solid red; margin: 3px;">
+{foreach $name in $yourname}
+      {call comment data="$name" /}
+    {/foreach}
     {foreach $msg in $messages}
       {call comment data="$msg" /}
     {/foreach}
@@ -103,9 +107,15 @@
 {/template}
 
 {template commentform}
+<h6>Добавить комментарий</h6>
   <form method="POST" action="addcomment">
-    <textarea name="msg" style="width: 400px; height: 100px;"></textarea>
     <br />
-    <input type="submit" value="send comment" />
+    <p>Ваше имя:</p>
+    <textarea name="name" style="width: 400px; height: 20px;"></textarea>
+    <br /><br />
+    <p>Ваше сообщение:</p>
+    <textarea name="msg" style="width: 400px; height: 100px;"></textarea>
+    <br /><br />
+    <input type="submit" value="Комментировать" />
   </form>
 {/template}

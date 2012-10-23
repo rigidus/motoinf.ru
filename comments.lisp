@@ -20,7 +20,7 @@
                  (:file "init")))
 (in-package #:motoinf)
 
-(defparameter *comments* (list "abc" "123" "zzzz"))
+(defparameter *comments* (list ()))
 
 (defun comments ()
   (tpl:root
@@ -31,3 +31,4 @@
                                                           (list :msg x))
                                                       *comments*)))
                       (tpl:commentform)))))
+
