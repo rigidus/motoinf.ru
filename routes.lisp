@@ -46,19 +46,19 @@
   (old-page "content/news/news.htm"))
 
 (def/route 01_10_12_1 ("01_10_12_1")
-  (old-page "content/news/01_10_12_1.htm"))
+  (old-page "content/news/2012/10/01_10_12_1.htm"))
 (def/route 01_10_12_2 ("01_10_12_2")
-  (old-page "content/news/01_10_12_2.htm"))
+  (old-page "content/news/2012/10/01_10_12_2.htm"))
 (def/route 02_10_12 ("02_10_12")
-  (old-page "content/news/02_10_12.htm"))
+  (old-page "content/news/2012/10/02_10_12.htm"))
 (def/route 03_10_12 ("03_10_12")
-  (old-page "content/news/03_10_12.htm"))
+  (old-page "content/news/2012/10/03_10_12.htm"))
 (def/route 08_10_12 ("08_10_12")
-  (old-page "content/news/08_10_12.htm"))
+  (old-page "content/news/2012/10/08_10_12.htm"))
 (def/route 16_10_12 ("16_10_12")
-  (old-page "content/news/16_10_12.htm"))
+  (old-page "content/news/2012/10/16_10_12.htm"))
 (def/route 27_10_12 ("27_10_12")
-  (old-page "content/news/27_10_12.htm"))
+  (old-page "content/news/2012/10/27_10_12.htm"))
 
 ;; Галерея
 
