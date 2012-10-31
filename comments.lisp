@@ -29,3 +29,19 @@
                       (tpl:commentblock (list :messages *comments*))
                       (tpl:commentform)))))
 
+
+(defun save-comments (filename)
+  (with-open-file (out filename
+                       :direction :output
+                       :if-exists :supersede)
+    (with-standard-io-syntax
+      (print *comments* out))))
+
+
+(defun load-comments (filename)
+    (with-open-file (in filename)
+          (with-standard-io-syntax
+                  (setf *comments* (read in)))))
+
+(setf filename "comments.txt")
+
