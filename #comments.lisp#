@@ -34,7 +34,7 @@
                         :direction :output
                         :if-exists :supersede)
   (format stream
-          (let ((comment-1 (list :name "ewfewfew" :msg "234234")))
+          (let ((comment-1 (list :name "rrr" :msg "65748464")))
             (format nil "~A,~A"
                     (getf comment-1 :name)
                     (getf comment-1 :msg)))))
@@ -47,18 +47,4 @@
 
 
 
-;; (defun save-comments (filename)
-;;   (with-open-file (out filename
-;;                        :direction :output
-;;                        :if-exists :supersede)
-;;     (with-standard-io-syntax
-;;       (print *comments* out))))
-
-
-;; (defun load-comments (filename)
-;;     (with-open-file (in filename)
-;;           (with-standard-io-syntax
-;;                   (setf *comments* (read in)))))
-
-;; (setf filename "comments.txt")
 
