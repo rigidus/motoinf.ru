@@ -20,7 +20,7 @@
                  (:file "init")))
 (in-package #:motoinf)
 
-(defvar *comments* ())
+(defparameter *comments* ())
 
 (defun comments ()
   (tpl:root
