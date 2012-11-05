@@ -33,6 +33,32 @@
          ,(cons (concatenate 'string (car param) "/") (cdr param))
        ,@body)))
 
+;; comments
+
+(defun comment-page ()
+  (tpl:root
+   (list :content
+         (concatenate 'string
+                      (tpl:commentblock (list :messages *comments*))
+                      (tpl:commentform)))))
+
+(defun add-comment-page (redirect)
+  (progn
+    (setf *comments*
+          (append *comments* (list
+                              (list :name (hunchentoot:post-parameter "name")
+                                    :msg  (hunchentoot:post-parameter "msg")))))
+    (save-comments-to-file)
+    (hunchentoot:redirect redirect)))
+
+
+(def/route comments ("comments")
+  (comment-page))
+
+(def/route addcomment ("addcomment" :method :post)
+  (add-comment-page "/comments"))
+
+
 ;; *ГЛАВНАЯ СТРАНИЦА*
 
 (def/route index ("index")
@@ -43,7 +69,10 @@
 ;; Новости
 
 (def/route news ("news")
-  (old-page "content/news/news.htm"))
+  (concatenate 'string
+               (old-page "content/news/news.htm")
+               (comment-page)))
+
 
 (def/route 01_10_12_1 ("01_10_12_1")
   (old-page "content/news/2012/10/01_10_12_1.htm"))
@@ -552,17 +581,6 @@
 (def/route erotika ("erotika")
     (old-page "content/songs/erotika.htm"))
 
-;; comments
-
-(def/route comments ("comments")
-  (comments))
-
-(restas:define-route addcomment ("addcomment" :method :post)
-  (setf *comments*
-        (append *comments* (list
-                            (list :name (hunchentoot:post-parameter "name")
-                                  :msg  (hunchentoot:post-parameter "msg")))))
-  (hunchentoot:redirect "/comments"))
 
 ;; submodules
 

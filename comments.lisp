@@ -1,48 +1,20 @@
-(require 'swank)
-
-(asdf:defsystem #:motoinf
-  :version      "0.0.2"
-  :author       "rigidus <i.am.rigidus@gmail.com>"
-  :licence      "GPLv3"
-  :description  "site http://rigidus.ru"
-  :depends-on   (#:closer-mop
-                 #:cl-ppcre
-                 #:restas-directory-publisher
-                 #:closure-template
-                 #:cl-json
-                 #:postmodern)
-  :serial       t
-  :components   ((:static-file "templates.htm")
-                 (:file "defmodule")
-                 (:file "render")
-                 (:file "routes")
-                 (:file "comments")
-                 (:file "init")))
 (in-package #:motoinf)
 
-(defvar *comments* ())
+(defparameter *comments* ())
 
-(defun comments ()
-  (tpl:root
-   (list :content
-         (concatenate 'string
-                      (tpl:commentblock (list :messages *comments*))
-                      (tpl:commentform)))))
+(defmacro bprint (var)
+  `(subseq (with-output-to-string (*standard-output*)
+             (pprint ,var)) 1))
 
+(defun save-comments-to-file ()
+  (alexandria:write-string-into-file
+   (bprint *comments*)
+   "/home/feolan/motoinf.ru/comments.txt"
+   :if-exists :supersede))
 
-(with-open-file (stream "/home/feolan/motoinf.ru/comments.txt"
-                        :direction :output
-                        :if-exists :supersede)
-  (format stream
-          ;; (let ((comment-1 (list :name "rrr" :msg "65748464")))
-          ;;   (format nil "~A,~A"
-          ;;           (getf comment-1 :name)
-          ;;           (getf comment-1 :msg)))))
-          (format nil "~{~a, ~}" (list *comments*))))
+(defun load-comments-from-file ()
+  (setf *comments*
+        (read-from-string
+         (alexandria:read-file-into-string "/home/feolan/motoinf.ru/comments.txt" ))))
 
-(with-open-file (stream "/home/feolan/motoinf.ru/comments.txt"
-                        :direction :input
-                        :if-exists :supersede)
-  (format nil (read-line stream)))
-
-
+(load-comments-from-file)
