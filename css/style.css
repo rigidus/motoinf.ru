@@ -301,7 +301,8 @@ color: #ACA47D;
 background-color: #2F1C07;
 margin: 0 auto;
 width: 720px;
-padding: 30px;
+padding-top: 20px;
+padding-bottom: 5px;
 }
 #footer p { margin: 0; position: relative; }
 #footer p span{ position: absolute; right: 0; }
