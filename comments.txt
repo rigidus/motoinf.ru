@@ -1,3 +1,1 @@
-(NIL (:NAME "1" :MSG "1") (:NAME "2" :MSG "2") (:NAME "fg" :MSG "gdf")
- (:NAME "fg" :MSG "gdf") (:NAME "fg" :MSG "gdf") (:NAME "gh" :MSG "tyr")
- (:NAME "ор" :MSG "оныв"))
+((:NAME "11" :MSG "dd"))
