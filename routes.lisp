@@ -35,28 +35,28 @@
 
 ;; comments
 
-(defun comment-page ()
-  (tpl:root
-   (list :content
-         (concatenate 'string
-                      (tpl:commentblock (list :messages *comments*))
-                      (tpl:commentform)))))
+;; (defun comment-page ()
+;;   (tpl:root
+;;    (list :content
+;;          (concatenate 'string
+;;                       (tpl:commentblock (list :messages *comments*))
+;;                       (tpl:commentform)))))
 
-(defun add-comment-page (redirect)
-  (progn
-    (setf *comments*
-          (append *comments* (list
-                              (list :name (hunchentoot:post-parameter "name")
-                                    :msg  (hunchentoot:post-parameter "msg")))))
-    (save-comments-to-file)
-    (hunchentoot:redirect redirect)))
+;; (defun add-comment-page (redirect)
+;;   (progn
+;;     (setf *comments*
+;;           (append *comments* (list
+;;                               (list :name (hunchentoot:post-parameter "name")
+;;                                     :msg  (hunchentoot:post-parameter "msg")))))
+;;     (save-comments-to-file)
+;;     (hunchentoot:redirect redirect)))
 
 
-(def/route comments ("comments")
-  (comment-page))
+;; (def/route comments ("comments")
+;;   (comment-page))
 
-(def/route addcomment ("addcomment" :method :post)
-  (add-comment-page "/comments"))
+;; (def/route addcomment ("addcomment" :method :post)
+;;   (add-comment-page "/comments"))
 
 
 ;; *ГЛАВНАЯ СТРАНИЦА*
@@ -68,12 +68,13 @@
 
 ;; Новости
 
+;; (def/route news ("news")
+;;   (concatenate 'string
+;;                (old-page "content/news/news.htm")
+;;                (comment-page)))
+
 (def/route news ("news")
-  (concatenate 'string
-               (old-page "content/news/news.htm")
-               (comment-page)))
-
-
+  (old-page "content/news/news.htm"))
 (def/route 01_10_12_1 ("01_10_12_1")
   (old-page "content/news/2012/10/01_10_12_1.htm"))
 (def/route 01_10_12_2 ("01_10_12_2")
