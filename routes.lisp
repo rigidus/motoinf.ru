@@ -89,6 +89,8 @@
   (old-page "content/news/2012/10/16_10_12.htm"))
 (def/route 27_10_12 ("27_10_12")
   (old-page "content/news/2012/10/27_10_12.htm"))
+(def/route 17_11_12 ("17_11_12")
+  (old-page "content/news/2012/11/17_11_12.htm"))
 
 ;; Галерея
 
