@@ -35,28 +35,30 @@
 
 ;; comments
 
-;; (defun comment-page ()
-;;   (tpl:root
-;;    (list :content
-;;          (concatenate 'string
-;;                       (tpl:commentblock (list :messages *comments*))
-;;                       (tpl:commentform)))))
+(defun comment-page ()
+  (tpl:root
+   (list :content
+         (concatenate 'string
+                      (tpl:commentblock (list :messages *comments*))
+                      (tpl:commentform)))))
 
-;; (defun add-comment-page (redirect)
-;;   (progn
-;;     (setf *comments*
-;;           (append *comments* (list
-;;                               (list :name (hunchentoot:post-parameter "name")
-;;                                     :msg  (hunchentoot:post-parameter "msg")))))
-;;     (save-comments-to-file)
-;;     (hunchentoot:redirect redirect)))
+(defun add-comment-page (redirect)
+  (progn
+    (setf *comments*
+          (append *comments* (list
+                              (list :name (hunchentoot:post-parameter "name")
+                                    :msg  (hunchentoot:post-parameter "msg")))))
+    (save-comments-to-file)
+    (hunchentoot:redirect redirect)))
 
 
 ;; (def/route comments ("comments")
 ;;   (comment-page))
 
-;; (def/route addcomment ("addcomment" :method :post)
-;;   (add-comment-page "/comments"))
+
+(defmacro def/comments (name)
+`(def/route addcomment ("addcomment" :method :post)
+  (add-comment-page ,name)))
 
 
 ;; *ГЛАВНАЯ СТРАНИЦА*
@@ -68,13 +70,13 @@
 
 ;; Новости
 
-;; (def/route news ("news")
+;; (def/comments news ("news")
 ;;   (concatenate 'string
 ;;                (old-page "content/news/news.htm")
 ;;                (comment-page)))
 
-(def/route news ("news")
-  (old-page "content/news/news.htm"))
+;; (def/route news ("news")
+;;   (old-page "content/news/news.htm"))
 (def/route 01_10_12_1 ("01_10_12_1")
   (old-page "content/news/2012/10/01_10_12_1.htm"))
 (def/route 01_10_12_2 ("01_10_12_2")
@@ -602,3 +604,39 @@
 (restas:mount-submodule -resources- (#:restas.directory-publisher)
                         (restas.directory-publisher:*baseurl* '("resources"))
                         (restas.directory-publisher:*directory* (path "resources/")))
+
+
+;; Макросы, для того чтобы разобраться с комментариями (сделано Мишей)
+
+(defmacro def-bla (name param &body body)
+  `(progn
+     (restas:define-route ,name ,param
+       ,@body)))
+
+(print (macroexpand-1 '(def-bla my-name ("my-param")
+                        (list 1 2 3))))
+
+;; => (PROGN
+;;      (RESTAS:DEFINE-ROUTE MY-NAME ("my-param")
+;;        (LIST 1 2 3)))
+
+(defmacro obertka (name param &body body)
+  `(progn
+     (def-bla name param ,@body)
+     (my-comment "blablabla")))
+
+
+(print (macroexpand-1 '(obertka my-name ("my-param")
+                        (list 1 2 3))))
+
+;; => (PROGN
+;;      (DEF-BLA NAME PARAM
+;;        (LIST 1 2 3))
+;;      (MY-COMMENT "blablabla"))
+
+
+;; =>  (PROGN
+;;       (PROGN
+;;         (RESTAS:DEFINE-ROUTE MY-NAME ("my-param")
+;;           (LIST 1 2 3)))
+;;       (MY-COMMENT "blablabla"))
