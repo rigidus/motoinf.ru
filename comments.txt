@@ -3,4 +3,6 @@
  (:NAME "www" :MSG "qqq") (:NAME "qsdgv" :MSG "1244")
  (:NAME "Olesya" :MSG "NNNN") (:NAME "faf" :MSG "qwe") (:NAME "faf" :MSG "qwe")
  (:NAME "ff" :MSG "ww") (:NAME "hsw" :MSG "245567")
- (:NAME "olesya" :MSG "soobsenie"))
+ (:NAME "olesya" :MSG "soobsenie") (:NAME NIL :MSG NIL) (:NAME NIL :MSG NIL)
+ (:NAME NIL :MSG NIL) (:NAME NIL :MSG NIL) (:NAME NIL :MSG NIL)
+ (:NAME NIL :MSG NIL))

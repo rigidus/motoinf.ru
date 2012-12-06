@@ -52,33 +52,39 @@
     (hunchentoot:redirect redirect)))
 
 
-;; (def/route comments ("comments")
-;;   (comment-page))
-
-
-(defmacro def/comments (name)
-`(def/route addcomment ("addcomment" :method :post)
-  (add-comment-page ,name)))
-
+(defmacro def/comments (name param &body body)
+  `(progn
+     (def/route ,name ,param ,@body
+     (comment-page)
+                ;; (add-comment-page "/bla")
+                )))
 
 ;; *ГЛАВНАЯ СТРАНИЦА*
 
 (def/route index ("index")
   (old-page "content/index.htm"))
 
+;; (print (macroexpand-1 '(def/comments my-name ("my-param")
+;;                         (list 1 2 3))))
+
 ;; *ВЕРХНЕЕ МЕНЮ*
 
 ;; Новости
 
 ;; (def/comments news ("news")
-;;   (concatenate 'string
+;;   (concatenate 'strqing
 ;;                (old-page "content/news/news.htm")
 ;;                (comment-page)))
 
-;; (def/route news ("news")
-;;   (old-page "content/news/news.htm"))
-(def/route 01_10_12_1 ("01_10_12_1")
+;; (def/route addcomment ("addcomment" :method :post)
+;;   (add-comment-page "/comments"))
+
+(def/route news ("news")
+  (old-page "content/news/news.htm"))
+
+(def/comments 01_10_12_1 ("01_10_12_1")
   (old-page "content/news/2012/10/01_10_12_1.htm"))
+
 (def/route 01_10_12_2 ("01_10_12_2")
   (old-page "content/news/2012/10/01_10_12_2.htm"))
 (def/route 02_10_12 ("02_10_12")
@@ -606,37 +612,3 @@
                         (restas.directory-publisher:*directory* (path "resources/")))
 
 
-;; Макросы, для того чтобы разобраться с комментариями (сделано Мишей)
-
-(defmacro def-bla (name param &body body)
-  `(progn
-     (restas:define-route ,name ,param
-       ,@body)))
-
-(print (macroexpand-1 '(def-bla my-name ("my-param")
-                        (list 1 2 3))))
-
-;; => (PROGN
-;;      (RESTAS:DEFINE-ROUTE MY-NAME ("my-param")
-;;        (LIST 1 2 3)))
-
-(defmacro obertka (name param &body body)
-  `(progn
-     (def-bla name param ,@body)
-     (my-comment "blablabla")))
-
-
-(print (macroexpand-1 '(obertka my-name ("my-param")
-                        (list 1 2 3))))
-
-;; => (PROGN
-;;      (DEF-BLA NAME PARAM
-;;        (LIST 1 2 3))
-;;      (MY-COMMENT "blablabla"))
-
-
-;; =>  (PROGN
-;;       (PROGN
-;;         (RESTAS:DEFINE-ROUTE MY-NAME ("my-param")
-;;           (LIST 1 2 3)))
-;;       (MY-COMMENT "blablabla"))
