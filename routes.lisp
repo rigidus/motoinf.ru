@@ -55,7 +55,7 @@
 (defmacro def/comments (name param &body body)
   `(progn
      (def/route ,name ,param ,@body
-     (comment-page)
+     ;; (comment-page)
                 ;; (add-comment-page "/bla")
                 )))
 
