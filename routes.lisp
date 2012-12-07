@@ -54,38 +54,30 @@
 
 (defmacro def/comments (name param &body body)
   `(progn
-     (def/route ,name ,param ,@body
-     ;; (comment-page)
-                ;; (add-comment-page "/bla")
-                )))
+     (def/route ,name ,param
+       (concatenate 'string ,@body
+                     (comment-page)))))
 
 ;; *ГЛАВНАЯ СТРАНИЦА*
 
 (def/route index ("index")
   (old-page "content/index.htm"))
 
-;; (print (macroexpand-1 '(def/comments my-name ("my-param")
-;;                         (list 1 2 3))))
+;; (print (macroexpand-1 '(...)))
 
 ;; *ВЕРХНЕЕ МЕНЮ*
 
 ;; Новости
 
-;; (def/comments news ("news")
-;;   (concatenate 'strqing
-;;                (old-page "content/news/news.htm")
-;;                (comment-page)))
-
 ;; (def/route addcomment ("addcomment" :method :post)
-;;   (add-comment-page "/comments"))
+;;   (add-comment-page "/news"))
 
 (def/route news ("news")
   (old-page "content/news/news.htm"))
 
 (def/comments 01_10_12_1 ("01_10_12_1")
   (old-page "content/news/2012/10/01_10_12_1.htm"))
-
-(def/route 01_10_12_2 ("01_10_12_2")
+(def/comments 01_10_12_2 ("01_10_12_2")
   (old-page "content/news/2012/10/01_10_12_2.htm"))
 (def/route 02_10_12 ("02_10_12")
   (old-page "content/news/2012/10/02_10_12.htm"))
