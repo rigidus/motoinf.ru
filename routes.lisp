@@ -54,9 +54,14 @@
 
 (defmacro def/comments (name param &body body)
   `(progn
-     (def/route ,name ,param
-       (concatenate 'string ,@body
-                     (comment-page)))))
+     (cons
+      (def/route ,name ,param
+        (concatenate 'string ,@body
+                     (comment-page)))
+      (def/route addcomment ("addcomment" :method :post)
+        (add-comment-page
+         (concatenate 'string "/"
+                      ,(symbol-name name)))))))
 
 ;; *ГЛАВНАЯ СТРАНИЦА*
 
@@ -68,9 +73,6 @@
 ;; *ВЕРХНЕЕ МЕНЮ*
 
 ;; Новости
-
-;; (def/route addcomment ("addcomment" :method :post)
-;;   (add-comment-page "/news"))
 
 (def/route news ("news")
   (old-page "content/news/news.htm"))
