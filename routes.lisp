@@ -38,10 +38,6 @@
        ,@body)))
 
 
-(defparameter *comment-path* "/home/feolan/motoinf.ru/content/commentsfiles/")
-
-(defparameter *a* "zzz")
-
 (restas:define-route addcomment ("addcomment" :method :post)
   (progn
     (let* ((pattern (hunchentoot:referer))
@@ -96,14 +92,11 @@
 (def/route index ("index")
   (op "content/index.htm"))
 
-;; (print (macroexpand-1 '(...)))
-
 ;; *ВЕРХНЕЕ МЕНЮ*
 
 ;; Новости
 
-(def/route news ("news")
-  (op "content/news/news.htm"))
+(def/route news ("news") (op "content/news/news.htm"))
 
 (def/comments 01_10_12_1  (op "content/news/2012/10/01_10_12_1.htm"))
 (def/comments 01_10_12_2  (op "content/news/2012/10/01_10_12_2.htm"))
