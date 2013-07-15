@@ -14,7 +14,7 @@
   :serial       t
   :components   ((:static-file "templates.htm")
                  (:file "defmodule")
-                 (:file "comments")
+                 (:file "config")
                  (:file "render")
                  (:file "routes")
                  (:file "init")))
