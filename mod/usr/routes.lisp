@@ -35,3 +35,10 @@
 (restas:define-route action-logoff ("/action-logoff" :method :post)
   (usr:logoff)
   (json:encode-json-to-string (list (cons "location" "/"))))
+
+
+(restas:define-route profile ("/profile/:id")
+  (let ((acc (usr::get-usr (parse-integer id))))
+    (if (null acc)
+        "account not found"
+        (usr::name (car acc)))))

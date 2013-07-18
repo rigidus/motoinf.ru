@@ -25,10 +25,15 @@
    (:unlogged     :link-sended  :none)        ;; Забыл пароль - пошлем линк
    (:link-sended  :logged       :enter)))
 
+;; test
+
 ;; (make-usr
 ;;  :email "rigidus@gmail.com"
 ;;  :password "rigidus"
 ;;  :name "rigidus")
+
+;; test
+;; (all-usr)
 
 ;; (print
 ;;  (macroexpand-1
