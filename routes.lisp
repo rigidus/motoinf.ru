@@ -24,10 +24,9 @@
 
 
 (defun op (filename)
-  (tpl:root (list :content
+  (tpl:root (list :content (alexandria:read-file-into-string (path filename))
                   :enterform (tpl:enterform)
-                  :auth (auth)
-                  (alexandria:read-file-into-string (path filename)))))
+                  :auth (auth))))
 
 ;; main
 
