@@ -16,8 +16,17 @@
    :return-code hunchentoot:+http-not-found+
    :content-type "text/html"))
 
+(defun auth ()
+  (if (null usr:*current-user*)
+      (tpl:authnotlogged)
+      (tpl:authlogged (list :username (usr:email usr:*current-user*)
+                            :password (usr:password usr:*current-user*)))))
+
+
 (defun op (filename)
   (tpl:root (list :content
+                  :enterform (tpl:enterform)
+                  :auth (auth)
                   (alexandria:read-file-into-string (path filename)))))
 
 ;; main
@@ -82,6 +91,7 @@
                       ,@body
                       (tpl:root
                        (list :content
+                             :auth (auth)
                              (concatenate 'string
                                           (tpl:commentblock (list :messages ,variable))
                                           (tpl:commentform)))))))))
