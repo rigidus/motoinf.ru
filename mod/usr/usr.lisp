@@ -18,16 +18,17 @@
   ((id           serial)
    (email        varchar)
    (password     varchar)
-   (name         (or db-null varchar))
-   (surname      (or db-null varchar)))
+   (name         (or db-null varchar)))
   (:logged :unlogged :link-sended)
   ((:logged       :unlogged     :logoff)      ;; Обнулить сессию
-   (:unlogged     :logged       :none)       ;; Залогиниться
-   (:unlogged     :link-sended  :none)  ;; Забыл пароль - пошлем линк
-   (:link-sended  :logged       :enter))
-  )
+   (:unlogged     :logged       :none)        ;; Залогиниться
+   (:unlogged     :link-sended  :none)        ;; Забыл пароль - пошлем линк
+   (:link-sended  :logged       :enter)))
 
-
+;; (make-usr
+;;  :email "rigidus@gmail.com"
+;;  :password "rigidus"
+;;  :name "rigidus")
 
 ;; (print
 ;;  (macroexpand-1
@@ -35,12 +36,11 @@
 ;;     ((ID SERIAL)
 ;;      (EMAIL VARCHAR)
 ;;      (PASSWORD VARCHAR)
-;;      (NAME (OR DB-NULL VARCHAR))
-;;      (SURNAME (OR DB-NULL VARCHAR))))))
+;;      (NAME (OR DB-NULL VARCHAR))))))
 
 ;; (with-connection ylg::*db-spec*
 ;;   (upd-usr (get-dao 'usr 1)
-;;            (list :name "name" :surname "surname")))
+;;            (list :name "name")))
 
 (defun SHOW-FLD-VARCHAR (x)
   (format nil "~%varchar: ~A" x))
@@ -53,10 +53,11 @@
 
 ;; Test
 
-                                        ;(to-html (car (all-usr)))
+;; (to-html (car (all-usr)))
 ;; (make-usr 'email "test" 'password "111")
 
-;; (upd-usr (get-dao 'usr 1) (list :name "name" :surname "surname"))
+;; (upd-usr (get-dao 'usr 1) (list :name "name"))
+
 
 (defun none ())
 
@@ -157,4 +158,3 @@
 ;;                                  :accessor country-sovereign))
 ;;     (:metaclass dao-class)
 ;;       (:keys name))
-

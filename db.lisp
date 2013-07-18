@@ -12,9 +12,9 @@
 
 (in-package #:db)
 
-(defparameter *db-name* "ylg_new")
-(defparameter *db-user* "ylg")
-(defparameter *db-pass* "6mEfBjyLrSzlE")
+(defparameter *db-name* "motoinf")
+(defparameter *db-user* "motoinf")
+(defparameter *db-pass* "motoinf")
 (defparameter *db-serv* "localhost")
 (defparameter *db-spec* (list *db-name* *db-user* *db-pass* *db-serv*))
 
