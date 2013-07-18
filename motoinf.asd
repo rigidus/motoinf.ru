@@ -24,7 +24,9 @@
                    (:module "usr"
                             :serial t
                             :pathname "mod/usr"
-                            :components ((:file "usr")
+                            :components ((:static-file "js/enter.js")
+                                         (:static-file "js/jquery.fancybox.pack.js")
+                                         (:file "usr")
                                          (:file "routes")))
                    (:file "render")
                    (:file "routes")
