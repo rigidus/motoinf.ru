@@ -37,21 +37,28 @@
 
 
 (defun grab-user (id-str)
-  (destructuring-bind (name flow age exp-raw)
-      (extract '((4 5 "<h1>.*</h1>")
-                 (23 6 "<div class=\"item flow\">.*</div>")
-                 (9 4 "Возраст: .* лет")
-                 (9 4 "(?s)Возраст: .*<div id=\\\"photos_id\\\">"))
-               (drakma:http-request (format nil "http://www.motobratan.ru/users/~A.html" id-str)))
-    (destructuring-bind (birthday exp)
-        (extract '((26 7 "<span class=\\\"small gray\\\">.*</span>")
-                   (11 4 "Мото-стаж: .* лет" ))
-                 exp-raw)
-      (list :name name
-            :flow flow
-            :age age
-            :birthday birthday
-            :exp exp
-            ))))
+  (let ((page (drakma:http-request (format nil "http://www.motobratan.ru/users/~A.html" id-str))))
+    (destructuring-bind (name flow age exp-raw)
+        (extract '((4 5 "<h1>.*</h1>")
+                   (23 6 "<div class=\"item flow\">.*</div>")
+                   (9 4 "Возраст: .* лет")
+                   (9 4 "(?s)Возраст: .*<div id=\\\"photos_id\\\">"))
+                 page)
+      (destructuring-bind (birthday exp)
+          (extract '((26 7 "<span class=\\\"small gray\\\">.*</span>")
+                     (11 4 "Мото-стаж: .* лет" ))
+                   exp-raw)
+        (list :name name
+              :flow flow
+              :age age
+              :birthday birthday
+              :exp exp
+              :motorcycles (mapcar #'(lambda (x)
+                                       (car (extract '((0 5 "\\d*.html")) x)))
+                                   (remove-duplicates
+                                    (ppcre:all-matches-as-strings
+                                     "<a href=\\\"/users/.*.*/motorcycles/.*html"
+                                     page)
+                                    :test #'equal)))))))
 
 (grab-user "10001")
