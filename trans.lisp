@@ -87,12 +87,14 @@
 
 (defun grab-user-moto (user-id-str moto-id-str)
   (let ((page (drakma:http-request (format nil "http://www.motobratan.ru/members/~A/motorcycles/~A.html" user-id-str moto-id-str))))
-    (destructuring-bind (name descr)
-        (extract '((4 5 "<h1>.*</h1>")
-                   (0 0 "(?s)</h1>.*<div id=\\\"motorcycle_photos_id\\\">"))
-                 page)
-      (ppcre:all-matches-as-strings "http://img.motorussia.ru/images/thumbnail/.*/.*\.jpg" page)
-      ;; descr
-      )))
+    (if (ppcre:all-matches-as-strings "Array" page)
+        nil
+        (destructuring-bind (name descr)
+            (extract '((4 5 "<h1>.*</h1>")
+                       (0 0 "(?s)</h1>.*<div id=\\\"motorcycle_photos_id\\\">"))
+                     page)
+          (ppcre:all-matches-as-strings "http://img.motorussia.ru/images/thumbnail/.*/.*\.jpg" page)
+          ;; descr
+          ))))
 
-(grab-user-moto "18601" "10")
+;; (grab-user-moto "18601" "1")
