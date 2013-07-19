@@ -50,8 +50,8 @@
                        (23 6 "<div class=\"item flow\">.*</div>"))
                      page)
           (handler-case
-              (let ((raw (extract '((9 4 "Возраст: .* (лет|год)")
-                                    (9 4 "(?s)Возраст: .*<div id=\\\"photos_id\\\">"))
+              (let ((raw (extract '((9 4 "Возраст: .* (лет|год|года)")
+                                    (9 4 "(?s)Возраст: .*"))
                                   page)))
                 (setf age (car raw))
                 (let ((raw2 (extract '((26 7 "<span class=\\\"small gray\\\">.*</span>")
@@ -79,4 +79,20 @@
    (print item)
    (print (grab-user (format nil "~A" item))))
 
-(grab-user 10004)
+;; (grab-user 10004)
+(loop :for item :from 1 :to 10001 :do
+   (print item)
+   (print (grab-user (format nil "~A" item))))
+
+
+(defun grab-user-moto (user-id-str moto-id-str)
+  (let ((page (drakma:http-request (format nil "http://www.motobratan.ru/members/~A/motorcycles/~A.html" user-id-str moto-id-str))))
+    (destructuring-bind (name descr)
+        (extract '((4 5 "<h1>.*</h1>")
+                   (0 0 "(?s)</h1>.*<div id=\\\"motorcycle_photos_id\\\">"))
+                 page)
+      (ppcre:all-matches-as-strings "http://img.motorussia.ru/images/thumbnail/.*/.*\.jpg" page)
+      ;; descr
+      )))
+
+(grab-user-moto "18601" "10")
