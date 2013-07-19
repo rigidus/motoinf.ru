@@ -98,3 +98,52 @@
           ))))
 
 ;; (grab-user-moto "18601" "1")
+
+(print
+(let* ((idx 0)
+       (src (drakma:http-request "http://www.motobratan.ru/modules/comments/comments.php"
+                                 :method :post
+                                 :parameters '(("flood" . "0")
+                                               ("operation" . "page")
+                                               ("order" . "ASC")
+                                               ("page" . "1")
+                                               ("table" . "voice")
+                                               ("topic_id" . "13506")
+                                               ("type" . "comments")
+                                               )))
+       (pos (ppcre:all-matches "<div class=\\\"item flow understandBlock\\\" id=\\\"comment.*" src)))
+  (loop :for item :in pos :collect
+     (prog1 (subseq src idx item)
+       (setf idx item)))))
+
+
+(print (drakma:http-request "http://www.motobratan.ru/modules/comments/comments.php"
+                     :method :post
+                     :parameters '(("flood" . "0")
+                                   ("operation" . "page")
+                                   ("order" . "ASC")
+                                   ("page" . "1")
+                                   ("table" . "voice")
+                                   ("topic_id" . "13506")
+                                   ("type" . "comments")
+                                   )))
+
+(defun get-voice-comments (topic-id-str)
+  (let* ((current-page "1")
+         (params (list (cons "flood" "0")
+                       (cons "operation" "page")
+                       (cons "order" "ASC")
+                       (cons "table" "voice")
+                       (cons "topic_id" topic-id-str)
+                       (cons "type" "comments")))
+         (page1 (drakma:http-request "http://www.motobratan.ru/modules/comments/comments.php"
+                                    :method :post
+                                    :parameters (append params (list (cons "page" current-page)))))
+         (next-pages (remove-duplicates
+                      (mapcar #'(lambda (x)
+                                  (subseq x 16))
+                              (ppcre:all-matches-as-strings "getCommentsPage\.\\d*" page1))
+                      :test #'equal)))
+    next-pages))
+
+(get-voice-comments "13506")
