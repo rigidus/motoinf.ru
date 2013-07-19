@@ -29,8 +29,29 @@
              (pattern-not-found-error () nil)))))
 
 ;; test
-(loop :for item :in (ppcre:all-matches-as-strings "message_\\d*_id" (drakma:http-request "http://www.motobratan.ru/voice/")) :collect
-   (let ((id-str (subseq item 8 (- (length item) 3))))
-     (progn
-       (print id-str)
-       (print (extract-voice-elt id-str)))))
+;; (loop :for item :in (ppcre:all-matches-as-strings "message_\\d*_id" (drakma:http-request "http://www.motobratan.ru/voice/")) :collect
+;;    (let ((id-str (subseq item 8 (- (length item) 3))))
+;;      (progn
+;;        (print id-str)
+;;        (print (extract-voice-elt id-str)))))
+
+
+(defun grab-user (id-str)
+  (destructuring-bind (name flow age exp-raw)
+      (extract '((4 5 "<h1>.*</h1>")
+                 (23 6 "<div class=\"item flow\">.*</div>")
+                 (9 4 "Возраст: .* лет")
+                 (9 4 "(?s)Возраст: .*<div id=\\\"photos_id\\\">"))
+               (drakma:http-request (format nil "http://www.motobratan.ru/users/~A.html" id-str)))
+    (destructuring-bind (birthday exp)
+        (extract '((26 7 "<span class=\\\"small gray\\\">.*</span>")
+                   (11 4 "Мото-стаж: .* лет" ))
+                 exp-raw)
+      (list :name name
+            :flow flow
+            :age age
+            :birthday birthday
+            :exp exp
+            ))))
+
+(grab-user "10001")
