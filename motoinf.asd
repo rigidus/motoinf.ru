@@ -13,21 +13,23 @@
                    #:postmodern)
     :serial       t
     :components   ((:static-file "templates.htm")
-                   (:file "motoinf")
+                   (:file "prepare")
+                   (:file "defmodule")
                    (:file "db")
                    (:module "lib"
                             :serial t
                             :pathname "lib"
-                            :components ((:file "entity") ;; depends-on "db"
+                            :components (
+                                         (:file "entity") ;; depends-on "db"
                                          (:file "datetime")
                                          (:file "view")))
-                   (:module "usr"
-                            :serial t
-                            :pathname "mod/usr"
-                            :components ((:static-file "js/enter.js")
-                                         (:static-file "js/jquery.fancybox.pack.js")
-                                         (:file "usr")
-                                         (:file "routes")))
+                   ;; (:module "usr"
+                   ;;          :serial t
+                   ;;          :pathname "mod/usr"
+                   ;;          :components ((:static-file "js/enter.js")
+                   ;;                       (:static-file "js/jquery.fancybox.pack.js")
+                   ;;                       (:file "usr")
+                   ;;                       (:file "routes")))
                    (:file "render")
                    (:file "routes")
                    (:file "init")))

@@ -1,9 +1,5 @@
 (in-package #:motoinf)
 
-(defmacro bprint (var)
-  `(subseq (with-output-to-string (*standard-output*)
-             (pprint ,var)) 1))
-
 
 ;; 404
 
@@ -16,17 +12,17 @@
    :return-code hunchentoot:+http-not-found+
    :content-type "text/html"))
 
-(defun auth ()
-  (if (null usr:*current-user*)
-      (tpl:authnotlogged)
-      (tpl:authlogged (list :username (usr:email usr:*current-user*)
-                            :password (usr:password usr:*current-user*)))))
+;; (defun auth ()
+;;   (if (null usr:*current-user*)
+;;       (tpl:authnotlogged)
+;;       (tpl:authlogged (list :username (usr:email usr:*current-user*)
+;;                             :password (usr:password usr:*current-user*)))))
 
 
 (defun op (filename)
-  (tpl:root (list :content (alexandria:read-file-into-string (path filename))
+  (tpl:root (list :content (alexandria:read-file-into-string filename)
                   :enterform (tpl:enterform)
-                  :auth (auth))))
+                  :auth "" #|(auth)|#)))
 
 ;; main
 
@@ -46,23 +42,23 @@
        ,@body)))
 
 
-(restas:define-route addcomment ("addcomment" :method :post)
-  (progn
-    (let* ((pattern (hunchentoot:referer))
-           (pos (position #\/ pattern :from-end t))
-           (match (subseq pattern (+ pos 1)))
-           (variable (intern (concatenate 'string "*" match  "*") (find-package "MOTOINF")))
-           (filename (concatenate 'string *comment-path* match ".txt")))
-      (setf (symbol-value variable)
-            (append (symbol-value variable) (list
-                                             (list :name (hunchentoot:post-parameter "name")
-                                                   :msg  (hunchentoot:post-parameter "msg")))))
+;; (restas:define-route addcomment ("addcomment" :method :post)
+;;   (progn
+;;     (let* ((pattern (hunchentoot:referer))
+;;            (pos (position #\/ pattern :from-end t))
+;;            (match (subseq pattern (+ pos 1)))
+;;            (variable (intern (concatenate 'string "*" match  "*") (find-package "MOTOINF")))
+;;            (filename (concatenate 'string *comment-path* match ".txt")))
+;;       (setf (symbol-value variable)
+;;             (append (symbol-value variable) (list
+;;                                              (list :name (hunchentoot:post-parameter "name")
+;;                                                    :msg  (hunchentoot:post-parameter "msg")))))
 
-      (alexandria:write-string-into-file
-       (bprint (symbol-value variable))
-       filename
-       :if-exists :supersede)
-      (hunchentoot:redirect (hunchentoot:referer)))))
+;;       (alexandria:write-string-into-file
+;;        (bprint (symbol-value variable))
+;;        filename
+;;        :if-exists :supersede)
+;;       (hunchentoot:redirect (hunchentoot:referer)))))
 
 
 
@@ -617,18 +613,27 @@
 
 ;; submodules
 
-(restas:mount-submodule -css- (#:restas.directory-publisher)
-                        (restas.directory-publisher:*baseurl* '("css"))
-                        (restas.directory-publisher:*directory* (path "css/")))
+(restas:mount-module -css-
+    (#:restas.directory-publisher)
+  (:url "/css/")
+  (restas.directory-publisher:*directory*
+   (merge-pathnames (make-pathname :directory '(:relative "repo/motoinf.ru/css")) (user-homedir-pathname))))
 
-(restas:mount-submodule -js- (#:restas.directory-publisher)
-                        (restas.directory-publisher:*baseurl* '("js"))
-                        (restas.directory-publisher:*directory* (path "js/")))
+(restas:mount-module -js-
+    (#:restas.directory-publisher)
+  (:url "/js/")
+  (restas.directory-publisher:*directory*
+   (merge-pathnames (make-pathname :directory '(:relative "repo/motoinf.ru/js"))  (user-homedir-pathname))))
 
-(restas:mount-submodule -img- (#:restas.directory-publisher)
-                        (restas.directory-publisher:*baseurl* '("img"))
-                        (restas.directory-publisher:*directory* (path "img/")))
+(restas:mount-module -img-
+    (#:restas.directory-publisher)
+  (:url "/img/")
+  (restas.directory-publisher:*directory*
+   (merge-pathnames (make-pathname :directory '(:relative "repo/motoinf.ru/img")) (user-homedir-pathname))))
 
-(restas:mount-submodule -resources- (#:restas.directory-publisher)
-                        (restas.directory-publisher:*baseurl* '("resources"))
-                        (restas.directory-publisher:*directory* (path "resources/")))
+(restas:mount-module -resources-
+    (#:restas.directory-publisher)
+  (:url "/resources/")
+  (restas.directory-publisher:*directory*
+   (merge-pathnames (make-pathname :directory '(:relative "repo/motoinf.ru/resources")) (user-homedir-pathname)))
+  (restas.directory-publisher:*autoindex* t))
